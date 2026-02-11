@@ -25,6 +25,7 @@ class IncidentResponse(BaseModel):
     confidence: float
     trace: List[TraceEntry]
     processing_time_ms: float
+    recommended_action: str
 
 class ReplayRequest(BaseModel):
     base_incident: IncidentRequest

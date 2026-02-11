@@ -5,6 +5,7 @@ from app.graph.state import IncidentInput, CyberNoirState
 from app.core.replay import replay_incident
 from app.graph.cybernoir_graph import run_cybernoir
 from app.core.history import save_incident_history
+from app.core.defensive_actions import get_recommended_action
 import time
 
 router = APIRouter(prefix="/incident", tags=["CyberNoir Analysis"])
@@ -36,6 +37,10 @@ def analyze_incident(payload: IncidentRequest):
         trace=final_state.trace
     )
 
+    recommended_action = get_recommended_action(
+        final_state.decisions.chosen_path
+    )
+
     end_time = time.perf_counter()
     processing_time_ms = round((end_time - start_time) * 1000, 2)
 
@@ -45,7 +50,8 @@ def analyze_incident(payload: IncidentRequest):
         decision_summary=[final_state.decisions.chosen_path],
         confidence=final_state.narrative.confidence_score,
         trace=final_state.trace,
-        processing_time_ms=processing_time_ms
+        processing_time_ms=processing_time_ms,
+        recommended_action = recommended_action
     )
 
 
@@ -90,5 +96,8 @@ def replay_incident_api(payload: ReplayRequest):
         "replay_confidence": replayed_state.narrative.confidence_score,
         "replay_trace": replayed_state.trace,
         "replay_narrative": replayed_state.narrative.attacker_narrative,
-        "processing_time_ms": processing_time_ms
+        "processing_time_ms": processing_time_ms,
+        "recommended_action": get_recommended_action(
+            replayed_state.decisions.chosen_path
+        )
     }
