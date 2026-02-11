@@ -156,16 +156,10 @@ It favors:
 
 ---
 
-## Response:
-Got it 👍  
-Here is a clean, properly formatted **Getting Started section in pure Markdown (.md)** that will render correctly on GitHub.
 
-You can paste this directly into your `README.md`.
 
-* * *
+## Getting Started
 
-Getting Started
-===============
 
 Prerequisites
 -------------
@@ -173,8 +167,6 @@ Prerequisites
 Make sure you have the following installed:
 
 *   Python 3.10+
-*   Node.js 18+
-*   npm or yarn
 *   Git
 
 Optional:
@@ -311,8 +303,8 @@ Expected response includes:
 
 * * *
 
-7\. Project Structure
----------------------
+## 7\. Project Structure
+
 
 ```
 backend/
