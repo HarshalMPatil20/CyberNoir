@@ -156,6 +156,178 @@ It favors:
 
 ---
 
+## Response:
+Got it 👍  
+Here is a clean, properly formatted **Getting Started section in pure Markdown (.md)** that will render correctly on GitHub.
+
+You can paste this directly into your `README.md`.
+
+* * *
+
+Getting Started
+===============
+
+Prerequisites
+-------------
+
+Make sure you have the following installed:
+
+*   Python 3.10+
+*   Node.js 18+
+*   npm or yarn
+*   Git
+
+Optional:
+
+*   PostgreSQL (if not using SQLite)
+*   Docker (for containerized setup)
+
+* * *
+
+1\. Clone the Repository
+------------------------
+
+```bash
+git clone https://github.com/HarshalMPatil20/CyberNoir.git
+cd cybernoir
+```
+
+* * *
+
+2\. Backend Setup (FastAPI + LangGraph)
+---------------------------------------
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment:
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Mac/Linux:
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+* * *
+
+3\. Environment Configuration
+-----------------------------
+
+Create a `.env` file inside the `backend/` directory.   
+Sample env is present.
+
+Example:
+
+```
+LLM_PROVIDER=gemini
+DATABASE_URL=sqlite:///./cybernoir.db
+LOG_LEVEL=INFO
+```
+
+If using Gemini or another LLM provider:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+* * *
+
+4\. Run the Backend Server
+--------------------------
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Backend will run at:
+
+```
+http://localhost:8000
+```
+
+Swagger API documentation:
+
+```
+http://localhost:8000/docs
+```
+
+* * *
+
+
+* * *
+
+5\. Test the API
+----------------
+
+Example endpoint:
+
+```
+POST /incident/analyze
+```
+
+Sample request body:
+
+```json
+{
+  "initial_vector": "credential_access",
+  "confirmed_actions": ["login_success", "credential_use"],
+  "non_actions": ["no_lateral_movement"],
+  "environment_context": {
+    "mfa_enabled": false,
+    "endpoint_monitoring": false,
+    "network_segmentation": false
+  },
+  "audience_level": "technical"
+}
+```
+
+Expected response includes:
+
+*   Decision
+*   Narrative
+*   Confidence score
+*   Full reasoning trace
+
+* * *
+
+7\. Project Structure
+---------------------
+
+```
+backend/
+  ├── app/
+  │    ├── agents/
+  │    ├── api/
+  │    ├── core/
+  │    ├── db/
+  │    └── main.py
+  └── requirements.txt
+```
+
+
+---
+
 ## System Architecture
 
 ```mermaid
@@ -256,5 +428,7 @@ flowchart TD
     C1 --> D5
 
 ```
+
+
 
 
