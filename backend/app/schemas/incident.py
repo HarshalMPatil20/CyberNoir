@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import (BaseModel)
 from typing import List, Dict, Optional, Any
 
 from app.graph.state import TraceEntry
@@ -24,6 +24,7 @@ class IncidentResponse(BaseModel):
     decision_summary: List[str]
     confidence: float
     trace: List[TraceEntry]
+    processing_time_ms: float
 
 class ReplayRequest(BaseModel):
     base_incident: IncidentRequest

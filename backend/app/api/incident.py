@@ -5,12 +5,14 @@ from app.graph.state import IncidentInput, CyberNoirState
 from app.core.replay import replay_incident
 from app.graph.cybernoir_graph import run_cybernoir
 from app.core.history import save_incident_history
+import time
 
 router = APIRouter(prefix="/incident", tags=["CyberNoir Analysis"])
 
 
 @router.post("/analyze", response_model=IncidentResponse)
 def analyze_incident(payload: IncidentRequest):
+    start_time = time.perf_counter()
 
     # Convert API payload → graph state
     initial_state = CyberNoirState(
@@ -34,12 +36,16 @@ def analyze_incident(payload: IncidentRequest):
         trace=final_state.trace
     )
 
+    end_time = time.perf_counter()
+    processing_time_ms = round((end_time - start_time) * 1000, 2)
+
     # Return customer-facing response
     return IncidentResponse(
         attacker_narrative=final_state.narrative.attacker_narrative,
         decision_summary=[final_state.decisions.chosen_path],
         confidence=final_state.narrative.confidence_score,
-        trace=final_state.trace
+        trace=final_state.trace,
+        processing_time_ms=processing_time_ms
     )
 
 
@@ -48,6 +54,7 @@ def analyze_incident(payload: IncidentRequest):
 
 @router.post("/incident/replay")
 def replay_incident_api(payload: ReplayRequest):
+    start_time = time.perf_counter()
 
     # 🔹 Convert request → IncidentInput
     base_incident = IncidentInput(
@@ -73,6 +80,9 @@ def replay_incident_api(payload: ReplayRequest):
         trace=replayed_state.trace
     )
 
+    end_time = time.perf_counter()
+    processing_time_ms = round((end_time - start_time) * 1000, 2)
+
     return {
         "base_decision": base_state.decisions.chosen_path,
         "replay_decision": replayed_state.decisions.chosen_path,
@@ -80,4 +90,5 @@ def replay_incident_api(payload: ReplayRequest):
         "replay_confidence": replayed_state.narrative.confidence_score,
         "replay_trace": replayed_state.trace,
         "replay_narrative": replayed_state.narrative.attacker_narrative,
+        "processing_time_ms": processing_time_ms
     }
