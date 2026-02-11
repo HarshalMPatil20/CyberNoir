@@ -1,0 +1,31 @@
+# -------------------------
+# Core API & typing
+# -------------------------
+fastapi
+uvicorn
+pydantic
+
+# -------------------------
+# Agentic orchestration
+# -------------------------
+langgraph
+
+# -------------------------
+# LLM providers (pluggable)
+# -------------------------
+openai
+google-generativeai
+requests
+
+# -------------------------
+# Environment management
+# -------------------------
+python-dotenv
+
+prometheus-client
+
+# -------------------------
+# db
+# -------------------------
+
+sqlalchemy

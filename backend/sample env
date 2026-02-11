@@ -1,0 +1,24 @@
+# ---------------------------------
+# LLM Configuration (REQUIRED)
+# ---------------------------------
+
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-3-flash-preview
+LLM_API_KEY={"Your_Google_API_Key"}
+LLM_TEMPERATURE=0.2
+
+# ---------------------------------
+# Optional: Ollama (Local LLM)
+# ---------------------------------
+
+# LLM_PROVIDER=ollama
+# LLM_MODEL=llama3
+# OLLAMA_URL=http://localhost:11434/api/chat
+
+# ---------------------------------
+# Optional: OpenAI
+# ---------------------------------
+
+# LLM_PROVIDER=openai
+# LLM_MODEL=gpt-4o-mini
+# LLM_API_KEY=YOUR_OPENAI_KEY

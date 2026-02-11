@@ -1,0 +1,9 @@
+backend/venv 
+backend/.env
+backend/cybernoir.db
+backend/SONAR_README.md
+backend/sonar_scan.bat
+backend/sonar-project.properties
+.idea
+backend/app/__pycache__
+**/__pycache__/
