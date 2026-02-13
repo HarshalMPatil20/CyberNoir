@@ -6,21 +6,21 @@
 
 ---
 
-## 🌃 What is CyberNoir?
+##  What is CyberNoir?
 
 CyberNoir is an **agent-based cybersecurity reasoning platform** that transforms raw logs and SIEM telemetry into:
 
-- 🧠 Attacker behavior analysis  
-- ♟️ Rational next-step simulation  
-- 📊 Confidence-calibrated decisions  
-- 📖 Plain-language security narratives  
-- 🧾 Full reasoning trace for audit & replay  
+-  Attacker behavior analysis  
+-  Rational next-step simulation  
+-  Confidence-calibrated decisions  
+-  Plain-language security narratives  
+-  Full reasoning trace for audit & replay  
 
 Instead of just detecting events, CyberNoir **reasons about attacker intent, risk, and progression.**
 
 ---
 
-## 🚨 Why CyberNoir?
+##  Why CyberNoir?
 
 Traditional systems:
 - Trigger alerts  
@@ -37,30 +37,30 @@ CyberNoir bridges the gap between **detection** and **understanding**.
 
 ---
 
-## 🦸 The Agents Assemble
+##  The Agents Assemble
 
 CyberNoir is not a single AI model.  
 It is a coordinated team of reasoning agents.
 
-### 🔍 Evidence Agent
+### Evidence Agent
 Extracts confirmed and uncertain actions from normalized logs.
 
-### 🛰️ Recon Agent
+### Recon Agent
 Assesses attacker visibility and exposure.
 
-### 🎯 Goal Agent
+### Goal Agent
 Infers probable attacker intent (persistence, harvesting, escalation, etc.).
 
-### ⚠️ Risk Agent
+### Risk Agent
 Evaluates escalation likelihood and detection probability.
 
-### ♟️ Decision Agent
+### Decision Agent
 Selects the most rational attacker path under current constraints.
 
-### 🎙️ Narrator Agent
+### Narrator Agent
 Converts structured reasoning into clear, human-readable explanations.
 
-### 📊 Confidence Agent
+### Confidence Agent
 Calibrates uncertainty and assigns a confidence score.
 
 ---
@@ -86,7 +86,7 @@ It reasons.
 
 ---
 
-## 🔄 Normalization Philosophy
+## Normalization Philosophy
 
 Raw logs are noisy and vendor-specific.
 
@@ -101,7 +101,7 @@ This allows consistent, explainable reasoning across incidents.
 
 ---
 
-## 🔐 Designed for Enterprise Reality
+## Designed for Enterprise Reality
 
 CyberNoir is built with:
 
@@ -118,7 +118,7 @@ It favors:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - FastAPI
@@ -138,7 +138,7 @@ It favors:
 
 ---
 
-## 📊 Example Output
+## Example Output
 
 ```json
 {
